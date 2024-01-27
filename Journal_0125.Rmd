@@ -1,0 +1,10 @@
+---
+title: "journal"
+output: pdf_document
+date: "2024-01-25"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Work on project proposal
