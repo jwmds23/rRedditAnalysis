@@ -1,0 +1,11 @@
+---
+title: "Nan Tang's Journal"
+author: "Nan Tang"
+date: "2024-01-27"
+output: html_document
+---
+## Jan 25, 2024
+Worked on project proposal, created function structure, sample data and visualization charts.
+
+## Jan 26, 2024
+Created personal github branch and started a journal to record everyday's updates on this R package.
