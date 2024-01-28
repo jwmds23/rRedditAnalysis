@@ -9,6 +9,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 date: "2024-01-25"
 Work on project proposal
+https://github.com/jwmds23/rRedditAnalysis/commits/jw_branch
 
 date: "2024-01-26"
 Create branch and work on coding package
+https://github.com/jwmds23/rRedditAnalysis/commits/jw_branch
+
+date: "2024-01-27"
+working on coding structure and waiting for feedback about proposal
+https://github.com/jwmds23/rRedditAnalysis/commits/jw_branch
