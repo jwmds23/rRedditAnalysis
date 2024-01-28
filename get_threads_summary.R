@@ -33,4 +33,41 @@ response <- GET(url, query = params)
 # Check the status of the response
 print(status_code(response))
 
+# Parse JSON content
+json_content <- httr::content(response, "text", encoding = "UTF-8")
+
+# Parse JSON into a data frame
+parsed_data <- fromJSON(json_content)
+
+# Accessing posts
+posts <- parsed_data$data$children
+
+# Extracting content from each post
+result_df <- data.frame(title = character(), text = character(),
+                        subreddit = character(), upvote_ratio = numeric(),
+                        created_utc = numeric(), num_comments = numeric(), 
+                        ups = numeric())
+for (i in 1:100) {
+  title <- posts[i,2]$title
+  text <- posts[i,2]$selftext
+  subreddit <- posts[i,2]$subreddit
+  upvote_ratio <- posts[i,2]$upvote_ratio
+  created_utc <- posts[i,2]$created_utc
+  num_comments <- posts[i,2]$num_comments
+  ups <- posts[i,2]$ups
+  # Create a data frame for the current post
+  df <- data.frame(
+    title = title,
+    text = text,
+    subreddit = subreddit,
+    upvote_ratio = upvote_ratio,
+    created_utc = created_utc,
+    num_comments = num_comments,
+    ups = ups
+  )
+  
+  # Append the current post data frame to the result data frame
+  result_df <- rbind(result_df, df)
+}
+
 }
