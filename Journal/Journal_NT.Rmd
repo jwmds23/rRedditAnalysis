@@ -12,9 +12,13 @@ Created personal github branch and started a journal to record everyday updates 
 https://github.com/jwmds23/rRedditAnalysis/commit/618b7e52815ec48ccce0e35dd705d6ea8ffb8319
 
 ## Jan 27, 2024
-Start to connect reddit API And extract data.
+Started to connect reddit API And extract data.
 https://github.com/jwmds23/rRedditAnalysis/commit/4c97106cb6600d03d1e345ea4134341c8999fc85
 
-And parse the response data, read the data to a data frame called result_df.
+And parsed the response data, read the data to a data frame called result_df.
 https://github.com/jwmds23/rRedditAnalysis/commit/12efad6cf7a0a3a8499c319b6ef6eaacf385fe77
+
+## Jan 28, 2024
+Complete the main part of function get_threads_summary by adding three visualization plots as return values.
+https://github.com/jwmds23/rRedditAnalysis/commit/6ccad2788cd8cf2fc58f92134030e68286ad3a16
 
