@@ -7,7 +7,7 @@ library(udpipe)
 source("get_requests.R")
 
 get_threads_summary <- function(keyword){
-  response <- get_search_response(keyword)
+  response <- get_search_threads_response(keyword)
   # Check the status of the response
   if(status_code(response)=='200'){
     

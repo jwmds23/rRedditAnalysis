@@ -12,7 +12,7 @@ get_token <- function(client_id=CLIENT_ID,client_secret=CLIENT_SECRET,user_agent
   content$access_token
 }
 
-get_search_response <- function(keyword){
+get_search_threads_response <- function(keyword){
   access_token <- get_token()
   # Define the API endpoint URL
   params <- list(
