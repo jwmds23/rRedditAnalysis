@@ -1,0 +1,118 @@
+---
+title: "Journal_LK"
+author: "lu kang"
+date: "2024-01-25"
+output: html_document
+---
+
+## Jan 18- Jan 24 2024
+
+Search and compare different APIs, determine the API being used, and the general topic. Research the methods of using reddits API and apply for an API secret key.
+
+## Jan 25 2024
+
+Understand how to use tokens and establish an API token.
+
+```{r}
+library(httr)
+library(jsonlite)
+library(sapply)
+client_id <- "JL7d1_eeiz7zeNLDwgEF5A"
+client_secret <- "XUJEFa86M5-wWMXkhHRNFOhMODv0UQ"
+user_agent <- "R:reddit_script:v1.0 (by /u/appleontree1990)"
+
+response <- POST("https://www.reddit.com/api/v1/access_token",
+                 authenticate(client_id, client_secret),
+                 user_agent(user_agent),
+                 body = list(grant_type = "client_credentials"),
+                 encode = "form")
+
+stop_for_status(response)
+content <- content(response)
+access_token <- content$access_token
+```
+
+## Jan 26 2024
+
+Study API documents and call the required subreddit title data according to the instructions, understand the data structure.
+
+```{r}
+get_hot_post_titles <- function(subreddit, limit = 10) {
+  url <- paste0("https://www.reddit.com/r/", subreddit, "/hot.json?limit=", limit)
+  response <- GET(url, user_agent("R: yourbot v1.0"))
+  if (status_code(response) != 200) {
+    stop("API request unsuccessful")
+  }
+  data <- fromJSON(rawToChar(response$content))
+  str(data)
+  return(data)
+}
+titles <- get_hot_post_titles('python')
+```
+
+## Jan 27 2024
+
+Extract text data needed in the analysis.
+```{r}
+subreddit_title_extract <- function(subreddit, limit = 100) {
+  url <- paste0("https://www.reddit.com/r/", subreddit, "/hot.json?limit=", limit)
+  response <- GET(url, user_agent("R: yourbot v1.0"))
+  if (status_code(response) != 200) {
+    stop("API request unsuccessful")
+  }
+  data <- fromJSON(rawToChar(response$content), flatten = TRUE)
+  title1 <- data$data$children[10]
+  print(title1)
+  return(title1)
+}
+
+# Example usage
+titles <- subreddit_title_extract('cats')
+#print(titles)
+```
+
+
+
+## Jan 28 2024
+
+
+Tokenize the extracted text data and handle stop words.
+
+```{r}
+library(tidytext)
+library(dplyr)
+library(stringr)
+text_data <- data.frame(titles = titles)
+data_clean <- text_data %>%
+  unnest_tokens(word, titles) %>%
+  anti_join(stop_words, by = "word")
+
+```
+
+## Jan 29 2024
+
+Conduct frequency analysis of words and visualize it, considering the significance of the feedback information provided by the vocabulary.
+
+```{r}
+library(ggplot2)
+word_counts <- data_clean %>%
+  count(word, sort = TRUE)
+word_counts_pic <- word_counts %>%
+  arrange(desc(n)) %>%
+  head(20)
+
+ggplot(word_counts_pic, aes(x = reorder(word, n), y = n)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  coord_flip() +  # Flips the axes for a horizontal bar plot
+  labs(title = "Word Frequency", x = "Words", y = "Frequency") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Adjust text angle for x-axis labels
+```
+
+
+
+
+
+
+
+
