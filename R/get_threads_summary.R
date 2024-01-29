@@ -52,7 +52,7 @@ get_threads_summary <- function(keyword){
         # visualization 1: Distribution of Upvote Ratio
         upvote_ratio_plot <- ggplot(result_df, aes(x = upvote_ratio)) +
           geom_histogram(binwidth = 0.1, fill = "darkgreen", color = "black", alpha = 0.7) +
-          labs(title = "Distribution of Upvote Ratio", x = "Upvote Ratio", y = "Frequency") +
+          labs(title = paste0("Distribution of Upvote Ratio for keyword `",keyword,"`"), x = "Upvote Ratio", y = "Frequency") +
           theme_minimal()
         
         
@@ -68,7 +68,7 @@ get_threads_summary <- function(keyword){
         #Create a bar plot for top 15 Subreddits
         top_subreddits_plot <- ggplot(top_15_subreddits, aes(x = post_count, y = fct_reorder(subreddit, post_count))) +
           geom_bar(stat = "identity", fill = "darkgrey", color = "black") +
-          labs(title = "Top Subreddits by Number of Threads", x = "Number of Threads", y = "Subreddit") +
+          labs(title = paste0("Top Subreddits by Number of Threads for keyword `",keyword,"`"), x = "Number of Threads", y = "Subreddit") +
           theme_minimal()
         
         
@@ -77,8 +77,7 @@ get_threads_summary <- function(keyword){
         df <- data.frame(text = paste(result_df$title, result_df$text, sep = " "))
         
         # Load the English model for parts-of-speech tagging
-        ud_model <- udpipe_download_model(language = "english", model_dir = getwd())
-        ud_model <- udpipe_load_model(ud_model$file_model)
+        ud_model <- udpipe_load_model("english-ewt-ud-2.5-191206.udpipe")
         
         # Tokenize and annotate the text with parts-of-speech
         annotated_text <- udpipe_annotate(ud_model, x = df$text)
