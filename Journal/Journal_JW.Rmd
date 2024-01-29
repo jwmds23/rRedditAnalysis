@@ -18,3 +18,7 @@ https://github.com/jwmds23/rRedditAnalysis/commits/jw_branch
 date: "2024-01-27"
 working on coding structure and waiting for feedback about proposal
 https://github.com/jwmds23/rRedditAnalysis/commits/jw_branch
+
+date: "2024-01-28"
+generate R scripts for contansts and get_requests helper functions
+https://github.com/jwmds23/rRedditAnalysis/commit/89c84749d26da2afc8da6a3a4a57fd4b6c3be304
