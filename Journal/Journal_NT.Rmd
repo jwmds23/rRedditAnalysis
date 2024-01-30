@@ -25,3 +25,7 @@ https://github.com/jwmds23/rRedditAnalysis/commit/6ccad2788cd8cf2fc58f92134030e6
 Added helper functions for getting access token and search response.
 https://github.com/jwmds23/rRedditAnalysis/commit/bbbfbad89e7e173fb2b8218189d5252dea96eab7
 
+## Jan 29, 2024
+Edited the script of function get_threads_summary for the part of loading English model.
+https://github.com/jwmds23/rRedditAnalysis/commit/8de78d08118410ea25dc38663d6082d9dd1f755c
+
