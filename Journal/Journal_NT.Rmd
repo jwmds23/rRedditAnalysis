@@ -29,3 +29,7 @@ https://github.com/jwmds23/rRedditAnalysis/commit/bbbfbad89e7e173fb2b8218189d525
 Edited the script of function get_threads_summary for the part of loading English model.
 https://github.com/jwmds23/rRedditAnalysis/commit/8de78d08118410ea25dc38663d6082d9dd1f755c
 
+## Jan 30, 2024
+Added docstring and try-catch part(for the parameter `keyword`) of function get_threads_summary.
+https://github.com/jwmds23/rRedditAnalysis/commit/8c95fb63b736870268fc1dadc80354f12745b3a8
+
