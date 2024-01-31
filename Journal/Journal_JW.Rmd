@@ -27,3 +27,7 @@ Date: "2024-01-29"
 Add request functions and polish coding for my wrapper functions
 https://github.com/jwmds23/rRedditAnalysis/commit/a5c992b941e988b8617bec981b8190920e57146b
 
+Date: "2024-01-29"
+Decide to only keep "comments" and "submitted" as options for variable content type.
+Handle inputs and errors
+https://github.com/jwmds23/rRedditAnalysis/commit/0c49f1c1f2bf17f7173a6d2b843f1ec00125bee2
