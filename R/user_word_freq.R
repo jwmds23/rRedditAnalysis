@@ -21,7 +21,7 @@ get_token <- function(client_id = CLIENT_ID, client_secret = CLIENT_SECRET, user
     stop_for_status(response)
     
     
-    content <- httr::content(response)w
+    content <- httr::content(response)
     content$access_token
   }, error = function(e) {
     
@@ -42,7 +42,7 @@ get_user_content_response <-function(username, content_type){
     sort = 'new',
     t = 'all',
     type = as.character(content_type),
-    username = as.character(username),  # Replace with the actual username
+    username = as.character(username),  
     count = 25,
     limit = 100,
     sr_detail = TRUE,
@@ -54,36 +54,75 @@ get_user_content_response <-function(username, content_type){
 
 
 user_word_freq <- function(username, content_type){
-  response = get_user_content_response(username, content_type)
-  content_df <- httr::content(response, as = "text") %>% jsonlite::fromJSON(flatten = TRUE)
-  content_df[2]$data$children$data.body
-  vector <- content_df[2]$data$children$data.body
-  print(vector)
   
-  # Create a corpus from the vector
-  #corpus <- Corpus(VectorSource(vector))
+  # Validate username as a string and strip spaces
+  if(!is.character(username)) {
+    print("Error: Username must be a string.")
+    return(NULL)
+  } else {
+    username <- gsub(" ", "", username) # Remove all spaces
+  }
+  
+  # Validate content_type as a string and make it lowercase
+  if(!is.character(content_type)) {
+    print("Error: Content type must be a string.")
+    return(NULL)
+  } else {
+    content_type <- tolower(content_type)
+  }
+  
+  # Initialize content to NULL
+  content <- NULL
+  
+  # Use tryCatch to handle potential errors during API call
+  result <- tryCatch({
+    listing <- get_user_content_response(username, content_type)
+    listing_df <- httr::content(listing, as = "text") %>% jsonlite::fromJSON(flatten = TRUE)
+    
+    if(content_type == "comments"){
+      content <- listing_df[2]$data$children$data.body
+    }else if(content_type == "submitted"){
+      content <- listing_df[2]$data$children$data.selftext
+    } else {
+      stop("Content type has to be either 'comments' or 'submitted'.")
+    }
+    
+    if(is.null(content)) {
+      message <- tolower(listing_df$message)
+      stop(paste0("Username '", username, "' ", message, ". Please enter a valid username."))
+    }
+    
+    # Return the content if all goes well
+    content
+  }, error = function(e) {
+    # Handle errors
+    print(paste0("Error: ", e$message))
+    NULL # Return NULL or appropriate error value
+  })
+  # Create a corpus from the content
+  corpus <- Corpus(VectorSource(content))
   
   # Preprocess the corpus: remove punctuation, numbers, lowercase, strip whitespace, remove stopwords
-  #corpus <- tm_map(corpus, content_transformer(tolower))
-  #corpus <- tm_map(corpus, removePunctuation)
-  #corpus <- tm_map(corpus, removeNumbers)
-  #corpus <- tm_map(corpus, stripWhitespace)
-  #corpus <- tm_map(corpus, removeWords, stopwords("en"))
+  corpus <- tm_map(corpus, content_transformer(tolower))
+  corpus <- tm_map(corpus, removePunctuation)
+  corpus <- tm_map(corpus, removeNumbers)
+  corpus <- tm_map(corpus, stripWhitespace)
+  corpus <- tm_map(corpus, removeWords, stopwords("en"))
   
   # Create a document-term matrix
-  #dtm <- TermDocumentMatrix(corpus)
+  dtm <- TermDocumentMatrix(corpus)
   
   # Convert the document-term matrix to a matrix
-  #m <- as.matrix(dtm)
+  m <- as.matrix(dtm)
   
   # Calculate word frequencies
-  #word_freqs <- sort(rowSums(m), decreasing = TRUE)
+  word_freqs <- sort(rowSums(m), decreasing = TRUE)
   
   # Make a data frame for the word cloud
-  #df_word_freqs <- data.frame(word=names(word_freqs), freq=word_freqs)
+  word_freqs_df <- data.frame(word=names(word_freqs), freq=word_freqs)
   
   # Generate the word cloud
-  #wordcloud2(df_word_freqs)
+  wordcloud2(word_freqs_df)
 }
   
   
