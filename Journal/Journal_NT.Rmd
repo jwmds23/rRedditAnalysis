@@ -33,3 +33,8 @@ https://github.com/jwmds23/rRedditAnalysis/commit/8de78d08118410ea25dc38663d6082
 Added docstring and try-catch part(for the parameter `keyword`) of function get_threads_summary.
 https://github.com/jwmds23/rRedditAnalysis/commit/8c95fb63b736870268fc1dadc80354f12745b3a8
 
+## Jan 31, 2024
+Added a test folder and wrote one test file for get_search_threads_response().
+https://github.com/jwmds23/rRedditAnalysis/commit/1fc76be766afeb9dc8f6a6da9b4c33179ae52c50
+
+
