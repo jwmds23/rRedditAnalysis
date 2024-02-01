@@ -3,6 +3,8 @@ library(jsonlite)
 library(tidyverse)
 library(tm)
 library(wordcloud2)
+library(udpipe)
+
 CLIENT_ID <- "JL7d1_eeiz7zeNLDwgEF5A"
 CLIENT_SECRET <- "XUJEFa86M5-wWMXkhHRNFOhMODv0UQ"
 USER_AGENT <- "R:reddit_script:v1.0 (by /u/appleontree1990)"
@@ -55,7 +57,7 @@ get_user_content_response <-function(username, content_type){
 
 user_word_freq <- function(username, content_type){
   
-  # Validate username as a string and strip spaces
+  #handle inputs for string formats
   if(!is.character(username)) {
     print("Error: Username must be a string.")
     return(NULL)
@@ -63,7 +65,6 @@ user_word_freq <- function(username, content_type){
     username <- gsub(" ", "", username) # Remove all spaces
   }
   
-  # Validate content_type as a string and make it lowercase
   if(!is.character(content_type)) {
     print("Error: Content type must be a string.")
     return(NULL)
@@ -71,10 +72,9 @@ user_word_freq <- function(username, content_type){
     content_type <- tolower(content_type)
   }
   
-  # Initialize content to NULL
   content <- NULL
   
-  # Use tryCatch to handle potential errors during API call
+  # handle potential errors during API call
   result <- tryCatch({
     listing <- get_user_content_response(username, content_type)
     listing_df <- httr::content(listing, as = "text") %>% jsonlite::fromJSON(flatten = TRUE)
@@ -91,39 +91,41 @@ user_word_freq <- function(username, content_type){
       message <- tolower(listing_df$message)
       stop(paste0("Username '", username, "' ", message, ". Please enter a valid username."))
     }
-    
     # Return the content if all goes well
     content
   }, error = function(e) {
-    # Handle errors
     print(paste0("Error: ", e$message))
     NULL # Return NULL or appropriate error value
   })
-  # Create a corpus from the content
-  corpus <- Corpus(VectorSource(content))
   
-  # Preprocess the corpus: remove punctuation, numbers, lowercase, strip whitespace, remove stopwords
+  # Load the udpipe model
+  ud_model <- udpipe_load_model("english-ewt-ud-2.5-191206.udpipe")
+  # Annotate the content using the udpipe model
+  annotated_content <- udpipe_annotate(ud_model, x = content)
+  annotated_content_df <- as.data.frame(annotated_content)
+  
+  # Filter the annotations to keep only nouns and adjectives
+  topical_words_df <- subset(annotated_content_df, upos %in% c('NOUN','PROPN'))
+  
+  corpus <- Corpus(VectorSource(topical_words_df$lemma))
+  
+  # Preprocess the corpus:
+  # remove punctuation, numbers, lowercase, strip whitespace, remove stopwords
   corpus <- tm_map(corpus, content_transformer(tolower))
   corpus <- tm_map(corpus, removePunctuation)
   corpus <- tm_map(corpus, removeNumbers)
   corpus <- tm_map(corpus, stripWhitespace)
   corpus <- tm_map(corpus, removeWords, stopwords("en"))
   
-  # Create a document-term matrix
-  dtm <- TermDocumentMatrix(corpus)
   
-  # Convert the document-term matrix to a matrix
+  dtm <- TermDocumentMatrix(corpus)
   m <- as.matrix(dtm)
   
-  # Calculate word frequencies
-  word_freqs <- sort(rowSums(m), decreasing = TRUE)
-  
-  # Make a data frame for the word cloud
-  word_freqs_df <- data.frame(word=names(word_freqs), freq=word_freqs)
-  
-  # Generate the word cloud
-  wordcloud2(word_freqs_df)
+  # Calculate word frequencies and generate the word cloud
+  topical_word_freqs <- sort(rowSums(m), decreasing = TRUE)
+  topical_word_freqs_df <- data.frame(word=names(topical_word_freqs), freq=topical_word_freqs)
+  wordcloud2(topical_word_freqs_df)
 }
-  
-  
+
+
 
