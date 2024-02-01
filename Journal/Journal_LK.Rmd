@@ -110,7 +110,11 @@ ggplot(word_counts_pic, aes(x = reorder(word, n), y = n)) +
 ```
 
 
+## Jan 30 2024
 
+Set constants and add a function to retrieve related subreddits based on input key word.
+
+https://github.com/jwmds23/rRedditAnalysis/commit/b2a05f59c5bd1e712b5eb0bf4c6848d6cc226317
 
 
 
