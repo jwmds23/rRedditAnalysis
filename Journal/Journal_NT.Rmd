@@ -42,5 +42,7 @@ Wrote one test file for get_threads_summary().
 https://github.com/jwmds23/rRedditAnalysis/commit/07e0db1dc92afae64e6d14aac0712c930303b415
 
 ## Feb 2, 2024
-Edited test files on the file paths;
+Edited test files, wrote a DESCRIPTION file, set up roxygen2 man files and namespace.
+https://github.com/jwmds23/rRedditAnalysis/commit/8b638a28dbcda1797b611c5da1df2727b9062bbc
+
 
