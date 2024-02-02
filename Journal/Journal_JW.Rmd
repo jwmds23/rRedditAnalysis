@@ -36,5 +36,9 @@ Date: "2024-01-31"
 Add a udpipe pakage to keep only topical words for creating word cloud
 https://github.com/jwmds23/rRedditAnalysis/commit/f2407ec0ef05e954f86978184d291da93cc8fcbf
 
+Date: "2024-02-01"
+Create unit test folder and file
+https://github.com/jwmds23/rRedditAnalysis/compare/main...jw_branch 
+
 
 
