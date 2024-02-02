@@ -2,18 +2,12 @@
 library(testthat)
 library(httr)
 library(jsonlite)
+source("R/get_threads_summary.R")
 
-# Load the function
-source("get_requests.R")
 
-# Define the tests
 test_that("get_threads_summary function works as expected", {
-  # Define test cases
   test_keywords <- c("Mazzy Star", "UBCO")
-  
-  # Loop through test cases
   for (keyword in test_keywords) {
-    # Call the function
     result <- get_threads_summary(keyword)
     
     # Check if the result is a list

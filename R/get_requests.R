@@ -1,4 +1,4 @@
-source("constants.R")
+source("R/constants.R")
 
 # Get access token of Reddit API
 get_token <- function(client_id=CLIENT_ID,client_secret=CLIENT_SECRET,user_agent=USER_AGENT){

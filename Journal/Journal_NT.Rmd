@@ -41,3 +41,6 @@ https://github.com/jwmds23/rRedditAnalysis/commit/1fc76be766afeb9dc8f6a6da9b4c33
 Wrote one test file for get_threads_summary().
 https://github.com/jwmds23/rRedditAnalysis/commit/07e0db1dc92afae64e6d14aac0712c930303b415
 
+## Feb 2, 2024
+Edited test files on the file paths;
+

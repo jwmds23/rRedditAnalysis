@@ -2,9 +2,10 @@ library(httr)
 library(jsonlite)
 library(text)
 library(udpipe)
+library(ggplot2)
+library(dplyr)
 
-
-source("get_requests.R")
+source("R/get_requests.R")
 
 #' Summarize the search results of Reddit threads by specific keyword
 #'
@@ -104,7 +105,7 @@ get_threads_summary <- function(keyword){
           df <- data.frame(text = paste(result_df$title, result_df$text, sep = " "))
           
           # Load the English model for parts-of-speech tagging
-          ud_model <- udpipe_load_model("english-ewt-ud-2.5-191206.udpipe")
+          ud_model <- udpipe_load_model("R/english-ewt-ud-2.5-191206.udpipe")
           
           # Tokenize and annotate the text with parts-of-speech
           annotated_text <- udpipe_annotate(ud_model, x = df$text)
