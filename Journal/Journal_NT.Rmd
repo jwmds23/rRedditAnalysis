@@ -37,4 +37,7 @@ https://github.com/jwmds23/rRedditAnalysis/commit/8c95fb63b736870268fc1dadc80354
 Added a test folder and wrote one test file for get_search_threads_response().
 https://github.com/jwmds23/rRedditAnalysis/commit/1fc76be766afeb9dc8f6a6da9b4c33179ae52c50
 
+## Feb 1, 2024
+Wrote one test file for get_threads_summary().
+https://github.com/jwmds23/rRedditAnalysis/commit/07e0db1dc92afae64e6d14aac0712c930303b415
 
