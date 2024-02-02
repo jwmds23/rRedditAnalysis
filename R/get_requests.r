@@ -20,7 +20,7 @@ get_subredit_titles <- function(subreddit){
   params <- list(
     g = "GLOBAL",
     limit = 10,
-    q = as.character(subreddit_name),
+    q = as.character(subreddit),
     limit = 100,
     Authorization = access_token)
   response <- GET(url, query = params)
@@ -32,6 +32,7 @@ get_subredit_titles <- function(subreddit){
 }
 
 get_search_subreddit <- function(keyword){
+  access_token <- get_token()
   # Construct the request URL
   url <- paste0("https://www.reddit.com/subreddits/search.json?q=", keyword, "&limit=", limit)
 

@@ -1,4 +1,4 @@
-source('get_request.r')
+source('get_requests.r')
 
 library(httr)
 library(jsonlite)
@@ -26,12 +26,15 @@ select_subreddit <- function(keyword) {
   
   # Display the name and subscribers in descending order
   cat("Top 5 subreddits:\n")
+  flush.console()
   for (i in 1:nrow(sorted_subreddits)) {
     cat(sprintf("%d: %s (%d subscribers)\n", i, sorted_subreddits$name[i], sorted_subreddits$subscribers[i]))
   }
+  flush.console()
   
   # Prompt the user to enter the index number of the subreddit
   cat("Please enter the index number (1-5) of the subreddit you're interested in: ")
+  flush.console()
   index <- as.integer(readline(prompt = "Please enter a number: "))
   
   # Validate the input
@@ -46,5 +49,5 @@ select_subreddit <- function(keyword) {
     cat(e$message)
   })
   
-  selected_subreddit
+  return(invisible(selected_subreddit))
 }

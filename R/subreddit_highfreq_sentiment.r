@@ -1,4 +1,5 @@
-source('get_request.r')
+source('get_requests.r')
+source('select_subreddit.r')
 
 library(tidytext)
 library(dplyr)
@@ -10,7 +11,7 @@ subreddit_highfreq_sentiment <- function(keyword){
     # select subreddit name
     subreddit <- select_subreddit(keyword)
     # request for titles
-    response <- request_titles(subreddit)
+    response <- get_subredit_titles(subreddit)
     # word segment
     data <- fromJSON(rawToChar(response$content), flatten = TRUE)
     titles <- data$data$children[10]
