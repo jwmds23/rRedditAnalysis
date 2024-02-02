@@ -3,6 +3,22 @@ source('get_requests.r')
 library(httr)
 library(jsonlite)
 
+#' Select and display the top 5 subreddits related to a keyword.
+#'
+#' This function performs a search for subreddits related to a given keyword and
+#' displays the top 5 subreddits with the highest number of subscribers.
+#'
+#' @param keyword The keyword used for subreddit search.
+#'
+#' @return The name of the selected subreddit based on user input.
+#'
+#' @import httr jsonlite
+#'
+#' @examples
+#' subreddit <- select_subreddit("cats")
+#' cat("Selected subreddit:", subreddit, "\n")
+#'
+#' @export
 select_subreddit <- function(keyword) {
   response <- get_search_subreddit(keyword)
   # handle the content to find 5 most related reddits

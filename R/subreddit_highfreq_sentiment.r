@@ -7,6 +7,24 @@ library(stringr)
 library(ggplot2)
 
 
+#' Analyze the high-frequency words in subreddit titles and visualize their sentiment.
+#'
+#' This function selects a subreddit based on a keyword, retrieves titles from the subreddit,
+#' and analyzes the high-frequency words in the titles while visualizing their sentiment.
+#'
+#' @param keyword A keyword to search for subreddits.
+#' @return A ggplot2 object representing a bar graph of word frequency by sentiment.
+#'
+#' @import tidytext dplyr stringr ggplot2
+#' @importFrom jsonlite fromJSON
+#' @importFrom tidyr unnest_tokens
+#' @importFrom tm stopWords
+#' @importFrom sentimentr get_sentiments
+#'
+#' @examples
+#' subreddit_highfreq_sentiment("cats")
+#'
+#' @export
 subreddit_highfreq_sentiment <- function(keyword){
     # select subreddit name
     subreddit <- select_subreddit(keyword)
