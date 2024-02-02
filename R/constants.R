@@ -1,5 +1,5 @@
 # Base domain
-DOMAIN_URL <- "https://www.reddit.com"
+DOMAIN_URL <- "https://www.reddit.com/"
 
 # Client ID
 CLIENT_ID <- "JL7d1_eeiz7zeNLDwgEF5A"
