@@ -1,21 +1,35 @@
-library(httr)
-library(jsonlite)
-library(tidyverse)
-library(tm)
-library(wordcloud2)
-library(udpipe)
 
-#' Title
+source("R/get_requests.R")
+#' Generate a Word Cloud from User Content on Reddit
 #'
-#' @param username 
-#' @param content_type 
+#' This function fetches content from Reddit based on the specified username and content type, 
+#' preprocesses the text to filter nouns and adjectives, and generates a word cloud visualization.
 #'
-#' @return
-#' @export
+#' @param username A character string specifying the Reddit username to fetch content for.
+#' @param content_type A character string specifying the type of content to fetch from the user's Reddit profile. 
+#'                     Valid options are "comments" or "submitted" for user comments or submitted posts, respectively.
 #'
+#' @return An `htmlwidget` object that displays a word cloud visualization of the most frequent nouns and 
+#'         adjectives found in the user's content. Returns `NULL` if there are errors in fetching or processing the content.
+#' @import httr
+#' @import jsonlite
+#' @import tidyverse
+#' @import tm
+#' @import wordcloud2
+#' @import udpipe
+#' 
 #' @examples
+#' \dontrun{
+#'  user_word_freq("Techno_superbowl", "comments")
+#' }
+#' 
+#'  @export
+#'
+
+
 user_word_freq <- function(username, content_type){
-  
+  #initialize an output variable for error message storation
+  output <- NULL
   #handle inputs for string formats
   if(!is.character(username)) {
     print("Error: Username must be a string.")
@@ -72,7 +86,7 @@ user_word_freq <- function(username, content_type){
   }
   
   # Load the udpipe model
-  ud_model <- udpipe_load_model("english-ewt-ud-2.5-191206.udpipe")
+  ud_model <- udpipe_load_model("R/english-ewt-ud-2.5-191206.udpipe")
   # Annotate the content using the udpipe model
   annotated_content <- udpipe_annotate(ud_model, x = content)
   annotated_content_df <- as.data.frame(annotated_content)
