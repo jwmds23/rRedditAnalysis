@@ -1,11 +1,20 @@
+source('get_request.r')
+
 library(tidytext)
 library(dplyr)
 library(stringr)
 library(ggplot2)
 
 
-plot_highsequency_sentiment <- function(titles){
+subreddit_highfreq_sentiment <- function(keyword){
+    # select subreddit name
+    subreddit <- select_subreddit(keyword)
+    # request for titles
+    response <- request_titles(subreddit)
     # word segment
+    data <- fromJSON(rawToChar(response$content), flatten = TRUE)
+    titles <- data$data$children[10]
+    
     text_data <- data.frame(titles)
     colnames(text_data) <- "titles"
     tokens <- text_data %>%

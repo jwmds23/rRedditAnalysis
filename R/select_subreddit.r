@@ -1,24 +1,10 @@
-search_subreddits <- function(keyword, limit = 100) {
-  # Construct the request URL
-  url <- paste0("https://www.reddit.com/subreddits/search.json?q=", keyword, "&limit=", limit)
-  
-  # Make request
-  headers <- add_headers(Authorization = paste("Bearer", access_token),
-                         `User-Agent` = USER_AGENT)
-  response <- tryCatch({
-    GET(url, headers = headers)
-  }, error = function(e) {
-    cat("Error in GET request: ", e$message, "\n")
-    return(NULL) # Return NULL to prevent further execution
-  })
-  
-  # If the GET request failed, stop the function execution
-  if (is.null(response)) return(NULL)
-  
-  if (status_code(response) != 200) {
-    stop("API request unsuccessful. Status code: ", status_code(response))
-  }
-  
+source('get_request.r')
+
+library(httr)
+library(jsonlite)
+
+select_subreddit <- function(keyword) {
+  response <- get_search_subreddit(keyword)
   # handle the content to find 5 most related reddits
   content <- tryCatch({
     fromJSON(rawToChar(response$content), flatten = TRUE)
@@ -28,7 +14,7 @@ search_subreddits <- function(keyword, limit = 100) {
   })
   
   if (is.null(content)) return(NULL)
-  
+  # Get subreddit name and subscribers number 
   subreddits <- content$data$children[['data.display_name']]
   subscribers <- content$data$children[['data.subscribers']]
   
@@ -60,5 +46,5 @@ search_subreddits <- function(keyword, limit = 100) {
     cat(e$message)
   })
   
-  return(selected_subreddit)
+  selected_subreddit
 }
