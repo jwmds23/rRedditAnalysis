@@ -1,0 +1,45 @@
+---
+title: "journal"
+output: pdf_document
+date: "2024-01-25"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Date: "2024-01-25"
+Work on project proposal
+https://github.com/jwmds23/rRedditAnalysis/commits/jw_branch
+
+Date: "2024-01-26"
+Create branch and work on coding package
+https://github.com/jwmds23/rRedditAnalysis/commits/jw_branch
+
+Date: "2024-01-27"
+Work on coding structure and waiting for feedback about proposal
+https://github.com/jwmds23/rRedditAnalysis/commits/jw_branch
+
+Date: "2024-01-28"
+Generate R scripts for contansts and get_requests helper functions
+https://github.com/jwmds23/rRedditAnalysis/commit/89c84749d26da2afc8da6a3a4a57fd4b6c3be304
+
+Date: "2024-01-29"
+Add request functions and polish coding for my wrapper functions
+https://github.com/jwmds23/rRedditAnalysis/commit/a5c992b941e988b8617bec981b8190920e57146b
+
+Date: "2024-01-30"
+Decide to only keep "comments" and "submitted" as options for variable content type.
+Handle inputs and errors
+https://github.com/jwmds23/rRedditAnalysis/commit/0c49f1c1f2bf17f7173a6d2b843f1ec00125bee2
+
+Date: "2024-01-31"
+Add a udpipe pakage to keep only topical words for creating word cloud
+https://github.com/jwmds23/rRedditAnalysis/commit/f2407ec0ef05e954f86978184d291da93cc8fcbf
+
+Date: "2024-02-01"
+Create unit test folder and file
+https://github.com/jwmds23/rRedditAnalysis/compare/main...jw_branch 
+
+Date: "2024-02-01"
+Add unit tests and Roxygen2 Docstring
+https://github.com/jwmds23/rRedditAnalysis/commit/7ce2b27a7f4ea2c5e5f2926e0b86f50dcdc73735

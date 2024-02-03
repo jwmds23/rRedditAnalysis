@@ -1,0 +1,21 @@
+Package: rRedditAnalysis
+Type: Package
+Title: Analyzing Reddit Data in R
+Version: 0.1.0
+Date: 2024-02-01
+Authors: 
+	Nan Tang <dejay.tang@gmail.com>, 
+	Jinxin Wang <jinxindata@gmail.com>, 
+	Lu Kang <kangluhappy2020@gmail.com>
+Description: rRedditAnalysis is an R package for analyzing data from the Reddit platform. It provides functions and tools to retrieve, process, and visualize Reddit data, including posts, comments, and user activity.
+License: GPL-3
+Imports:
+    dplyr,
+    ggplot2,
+    httr,
+    jsonlite,
+    lubridate,
+    udpipe
+RoxygenNote: 7.2.3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)

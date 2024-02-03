@@ -1,0 +1,48 @@
+---
+title: "Nan Tang's Journal"
+author: "Nan Tang"
+date: "2024-01-27"
+output: html_document
+---
+## Jan 25, 2024
+Worked on project proposal, created function structure, sample data and visualization charts.
+
+## Jan 26, 2024
+Created personal github branch and started a journal to record everyday updates on this R package.
+https://github.com/jwmds23/rRedditAnalysis/commit/618b7e52815ec48ccce0e35dd705d6ea8ffb8319
+
+## Jan 27, 2024
+Started to connect reddit API And extract data.
+https://github.com/jwmds23/rRedditAnalysis/commit/4c97106cb6600d03d1e345ea4134341c8999fc85
+
+And parsed the response data, read the data to a data frame called result_df.
+https://github.com/jwmds23/rRedditAnalysis/commit/12efad6cf7a0a3a8499c319b6ef6eaacf385fe77
+
+## Jan 28, 2024
+Completed the main part of function get_threads_summary by adding three visualization plots as return values.
+https://github.com/jwmds23/rRedditAnalysis/commit/6ccad2788cd8cf2fc58f92134030e68286ad3a16
+
+Added helper functions for getting access token and search response.
+https://github.com/jwmds23/rRedditAnalysis/commit/bbbfbad89e7e173fb2b8218189d5252dea96eab7
+
+## Jan 29, 2024
+Edited the script of function get_threads_summary for the part of loading English model.
+https://github.com/jwmds23/rRedditAnalysis/commit/8de78d08118410ea25dc38663d6082d9dd1f755c
+
+## Jan 30, 2024
+Added docstring and try-catch part(for the parameter `keyword`) of function get_threads_summary.
+https://github.com/jwmds23/rRedditAnalysis/commit/8c95fb63b736870268fc1dadc80354f12745b3a8
+
+## Jan 31, 2024
+Added a test folder and wrote one test file for get_search_threads_response().
+https://github.com/jwmds23/rRedditAnalysis/commit/1fc76be766afeb9dc8f6a6da9b4c33179ae52c50
+
+## Feb 1, 2024
+Wrote one test file for get_threads_summary().
+https://github.com/jwmds23/rRedditAnalysis/commit/07e0db1dc92afae64e6d14aac0712c930303b415
+
+## Feb 2, 2024
+Edited test files, wrote a DESCRIPTION file, set up roxygen2 man files and namespace.
+https://github.com/jwmds23/rRedditAnalysis/commit/8b638a28dbcda1797b611c5da1df2727b9062bbc
+
+
