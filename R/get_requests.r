@@ -1,7 +1,11 @@
-source("constants.R")
-
 library(httr)
 library(jsonlite)
+library(here)
+
+source(here("R", "constants.r"))
+
+
+
 #' Get an access token for Reddit API authentication.
 #'
 #' This function retrieves an access token for authentication with the Reddit API

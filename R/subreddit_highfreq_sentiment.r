@@ -1,10 +1,10 @@
-source('get_requests.r')
-source('select_subreddit.r')
-
 library(tidytext)
 library(dplyr)
 library(stringr)
 library(ggplot2)
+library(here)
+source(here("R", "get_requests.r"))
+source(here("R", "select_subreddit.r"))
 
 
 #' Analyze the high-frequency words in subreddit titles and visualize their sentiment.
@@ -25,9 +25,14 @@ library(ggplot2)
 #' subreddit_highfreq_sentiment("cats")
 #'
 #' @export
-subreddit_highfreq_sentiment <- function(keyword){
+subreddit_highfreq_sentiment <- function(keyword,test=0){
     # select subreddit name
-    subreddit <- select_subreddit(keyword)
+    if(test==0){
+        subreddit <- select_subreddit(keyword)
+    }
+    else{
+        subreddit <- select_subreddit(keyword,test=1)
+    }
     # request for titles
     response <- get_subredit_titles(subreddit)
     # word segment

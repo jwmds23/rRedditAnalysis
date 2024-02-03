@@ -1,7 +1,10 @@
-source('get_requests.r')
-
 library(httr)
 library(jsonlite)
+library(here)
+
+source(here("R", "get_requests.r"))
+
+
 
 #' Select and display the top 5 subreddits related to a keyword.
 #'
@@ -19,7 +22,7 @@ library(jsonlite)
 #' cat("Selected subreddit:", subreddit, "\n")
 #'
 #' @export
-select_subreddit <- function(keyword) {
+select_subreddit <- function(keyword, test=0) {
   response <- get_search_subreddit(keyword)
   # handle the content to find 5 most related reddits
   content <- tryCatch({
@@ -51,8 +54,12 @@ select_subreddit <- function(keyword) {
   # Prompt the user to enter the index number of the subreddit
   cat("Please enter the index number (1-5) of the subreddit you're interested in: ")
   flush.console()
-  index <- as.integer(readline(prompt = "Please enter a number: "))
-  
+  if (test == 0){
+    index <- as.integer(readline(prompt = "Please enter a number: "))
+  }
+  else {
+    index <- 2
+  }
   # Validate the input
   tryCatch({
     if (is.na(index) || index < 1 || index > 5) {
