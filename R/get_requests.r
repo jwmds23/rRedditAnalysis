@@ -35,7 +35,7 @@ get_token <- function(client_id = CLIENT_ID, client_secret = CLIENT_SECRET, user
 
 #' Get titles from a specified subreddit.
 #'
-#' This function retrieves titles from a specified subreddit.
+#' This function retrieves hot posts data from specific subreddit.
 #'
 #' @param subreddit The name of the subreddit.
 #' @return A response object containing subreddit titles.

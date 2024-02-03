@@ -15,4 +15,3 @@ test_that("get_requests function should return response", {
     expect_is(response, "response")
     expect_true(response$status_code == 200, "Response status code is 200")
 })
-

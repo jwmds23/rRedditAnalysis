@@ -17,9 +17,6 @@ source(here("R", "select_subreddit.r"))
 #'
 #' @import tidytext dplyr stringr ggplot2
 #' @importFrom jsonlite fromJSON
-#' @importFrom tidyr unnest_tokens
-#' @importFrom tm stopWords
-#' @importFrom sentimentr get_sentiments
 #'
 #' @examples
 #' subreddit_highfreq_sentiment("cats")
