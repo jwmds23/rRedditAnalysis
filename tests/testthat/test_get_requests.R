@@ -2,7 +2,7 @@
 library(testthat)
 library(httr)
 library(jsonlite)
-source("../../R/get_requests.R")
+source("R/get_requests.R")
 
 test_that("get_requests function should return response abhout specific subreddits", {
     response <- get_subredit_titles("books")
