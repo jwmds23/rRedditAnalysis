@@ -13,6 +13,7 @@ source(here("R", "select_subreddit.r"))
 #' and analyzes the high-frequency words in the titles while visualizing their sentiment.
 #'
 #' @param keyword A keyword to search for subreddits.
+#' @param test A flag for unit test dealing with user input.
 #' @return A ggplot2 object representing a bar graph of word frequency by sentiment.
 #'
 #' @import tidytext dplyr stringr ggplot2
