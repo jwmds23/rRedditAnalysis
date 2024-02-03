@@ -54,6 +54,13 @@ https://github.com/jwmds23/rRedditAnalysis/commit/cddf74f06ddefc66fc2f2db2b944a0
 
 ## Feb 02 2024
 
+Add unit tests and add the roxygen2 files, including description, namespace, and man folder.
+Solve the problem of making unit test of function contains readline for user input.
+
+https://github.com/jwmds23/rRedditAnalysis/commit/1cc2bc4357e7f27cc5b84ab065d253d852201cb4
+
+
+
 
 
 
