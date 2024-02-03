@@ -1,24 +1,36 @@
-library(httr)
-library(jsonlite)
-library(text)
-library(udpipe)
-library(ggplot2)
-library(dplyr)
-
 source("R/get_requests.R")
 
-#' Summarize the search results of Reddit threads by specific keyword
+#' Summarize Reddit Thread Search Results
 #'
-#' @param keyword  A string representing what you want to search for on Reddit.
+#' This function retrieves and summarizes search results of Reddit threads by a specific keyword.
 #'
-#' @return A list of three plots: upvote_ratio_plot, top_subreddits_plot, top_nouns_plot
-#' @export
+#' @param keyword A character string representing the keyword to search for on Reddit.
 #'
+#' @return A list containing three plots:
+#'   \describe{
+#'     \item{upvote_ratio_plot}{A histogram showing the distribution of upvote ratios.}
+#'     \item{top_subreddits_plot}{A bar plot displaying the top subreddits by number of threads.}
+#'     \item{top_nouns_plot}{A bar plot showing the top 20 frequent nouns in thread titles and texts.}
+#'   }
+#'
+#' @import httr
+#' @import jsonlite
+#' @import text
+#' @import udpipe
+#' @import ggplot2
+#' @import dplyr
+#'
+#' @references The function uses Reddit's API for data retrieval.
+#' @references The function utilizes the udpipe R package for natural language processing.
+#'
+#' @usage get_threads_summary(keyword)
 #' @examples
 #' \dontrun{
-#' get_threads_summary("Mazzy Star")
-#' get_threads_summary("UBCO")
-#' }  
+#'   get_threads_summary("Mazzy Star")
+#'   get_threads_summary("UBCO")
+#' }
+#' @export
+
 
 get_threads_summary <- function(keyword){
   # Check the format of argument `keyword`
@@ -94,7 +106,7 @@ get_threads_summary <- function(keyword){
           top_15_subreddits <- head(subreddit_counts, 15)
           
           #Create a bar plot for top 15 Subreddits
-          top_subreddits_plot <- ggplot(top_15_subreddits, aes(x = post_count, y = fct_reorder(subreddit, post_count))) +
+          top_subreddits_plot <- ggplot(top_15_subreddits, aes(x = post_count, y = reorder(subreddit, post_count))) +
             geom_bar(stat = "identity", fill = "darkgrey", color = "black") +
             labs(title = paste0("Top Subreddits by Number of Threads for keyword `",keyword,"`"), x = "Number of Threads", y = "Subreddit") +
             theme_minimal()
@@ -105,7 +117,7 @@ get_threads_summary <- function(keyword){
           df <- data.frame(text = paste(result_df$title, result_df$text, sep = " "))
           
           # Load the English model for parts-of-speech tagging
-          ud_model <- udpipe_load_model("R/english-ewt-ud-2.5-191206.udpipe")
+          ud_model <- udpipe_load_model("data/english-ewt-ud-2.5-191206.udpipe")
           
           # Tokenize and annotate the text with parts-of-speech
           annotated_text <- udpipe_annotate(ud_model, x = df$text)
