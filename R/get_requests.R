@@ -27,7 +27,6 @@ get_token <- function(client_id = CLIENT_ID, client_secret = CLIENT_SECRET, user
 # Request to get user content
 get_user_content_response <-function(username, content_type){
   access_token <- get_token()
-  
   # Define the API endpoint URL
   params <- list(
     context = 2,
@@ -44,3 +43,20 @@ get_user_content_response <-function(username, content_type){
   url <- paste0(DOMAIN_URL, "user/", username, "/", content_type,".json")
   return(GET(url, query = params))
 }
+
+
+# Request to get reddit search result
+get_search_threads_response <- function(keyword){
+  access_token <- get_token()
+  # Define the API endpoint URL
+  params <- list(
+    sort = 'relevance',
+    t = 'all',
+    type ='link',
+    q = as.character(keyword),
+    limit = 100,
+    Authorization = access_token)
+  # Send the GET request
+  url <- paste0("https://www.reddit.com/search.json?q=",params$q)
+  response <- GET(url, query = params)
+  response
