@@ -1,4 +1,3 @@
-
 source("R/constants.R")
 # Request to get token
 get_token <- function(client_id = CLIENT_ID, client_secret = CLIENT_SECRET, user_agent = USER_AGENT) {

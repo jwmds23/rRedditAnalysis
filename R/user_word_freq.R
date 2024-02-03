@@ -1,4 +1,3 @@
-
 source("R/get_requests.R")
 #' Generate a Word Cloud from User Content on Reddit
 #'
