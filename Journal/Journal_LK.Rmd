@@ -1,0 +1,73 @@
+---
+title: "Journal_LK"
+author: "lu kang"
+date: "2024-01-25"
+output: html_document
+---
+
+## Jan 18 - Jan 24 2024
+
+Search and compare different APIs, determine the API being used, and the general topic. Research the methods of using reddits API and apply for an API secret key.
+
+## Jan 25 2024
+
+Understand how to use tokens and establish an API token.
+
+## Jan 26 2024
+
+Study API documents and call the required subreddit title data according to the instructions, and handle the data structure.
+
+## Jan 27 2024
+
+Extract text data needed in the analysis.tokenize the extracted data and handle stop words.
+
+## Jan 29 2024
+
+Conduct frequency analysis of words and visualize it, considering the significance of the feedback information provided by the vocabulary.
+
+## Jan 30 2024
+
+Set constants and add a function to retrieve subreddits based on input key word.
+
+https://github.com/jwmds23/rRedditAnalysis/commit/b2a05f59c5bd1e712b5eb0bf4c6848d6cc226317
+
+
+## Jan 31 2024
+
+Make a new request to search for the subreddit names related to keyword, list subscribers for each subreddit and let user select the subredit they want.
+
+https://github.com/jwmds23/rRedditAnalysis/commit/9dbae43059679f42a0c31fec3b2039b54d2260d6
+
+Add request function which used to request titles in selected subreddit. And learn more about r package.
+
+https://github.com/jwmds23/rRedditAnalysis/commit/9392768661aea3183759655dfc2c7b07c232dfaf
+
+## Feb 01 2024
+
+Add plot function which show the final result of high frequency words and their sentiment.
+
+https://github.com/jwmds23/rRedditAnalysis/commit/598e2642ec312a17deb606bc87c415053d3d0e16
+
+Adjust all the codes for a unified function structure.
+
+https://github.com/jwmds23/rRedditAnalysis/commit/cddf74f06ddefc66fc2f2db2b944a0d1e002750a
+
+## Feb 02 2024
+
+Add unit tests and add the roxygen2 files, including description, namespace, and man folder.
+Solve the problem of making unit test of function contains readline for user input.
+
+https://github.com/jwmds23/rRedditAnalysis/commit/1cc2bc4357e7f27cc5b84ab065d253d852201cb4
+
+
+
+
+
+
+
+
+
+
+
+
+
