@@ -13,6 +13,7 @@ source(here("R", "get_requests.r"))
 #' prompts the user to select one of them.
 #'
 #' @param keyword The keyword used for subreddit search.
+#' @param test A flag for unit test dealing with user input.
 #'
 #' @return The name of the selected subreddit based on user input.
 #'
@@ -33,7 +34,7 @@ select_subreddit <- function(keyword, test=0) {
   })
   
   if (is.null(content)) return(NULL)
-  # Get subreddit name and subscribers number 
+  # Get subreddit name and subscribers number
   subreddits <- content$data$children[['data.display_name']]
   subscribers <- content$data$children[['data.subscribers']]
   
@@ -58,11 +59,13 @@ select_subreddit <- function(keyword, test=0) {
     index <- as.integer(readline(prompt = "Please enter a number: "))
   }
   else {
-    index <- 2
-  }
+     index <- 2
+  }  
+
   # Validate the input
   tryCatch({
-    if (is.na(index) || index < 1 || index > 5) {
+    if (!is.numeric(index) || is.na(index) || index < 1 || index > 5) {
+      selected_subreddit <- NA
       stop("Invalid index. Please enter a valid index number between 1 and 5.\n")
     } else {
       selected_subreddit <- sorted_subreddits$name[index]
