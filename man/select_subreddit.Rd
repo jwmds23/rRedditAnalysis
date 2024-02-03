@@ -8,6 +8,8 @@ select_subreddit(keyword, test = 0)
 }
 \arguments{
 \item{keyword}{The keyword used for subreddit search.}
+
+\item{test}{A flag for unit test dealing with user input.}
 }
 \value{
 The name of the selected subreddit based on user input.
