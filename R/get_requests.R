@@ -67,20 +67,7 @@ get_search_threads_response <- function(keyword){
   response
 
 
-#' Get titles from a specified subreddit.
-#'
-#' This function retrieves hot posts data from specific subreddit.
-#'
-#' @param subreddit The name of the subreddit.
-#' @return A response object containing subreddit titles.
-#'
-#' @import httr
-#'
-#' @examples
-#' response <- get_subredit_titles("cats")
-#' cat("Subreddit titles response:", response, "\n")
-#'
-#' @export
+# Request to get titles from a specified subreddit.
 get_subredit_titles <- function(subreddit){
   access_token <- get_token()
   url <- paste0("https://www.reddit.com/r/", subreddit, "/hot.json")
@@ -98,21 +85,8 @@ get_subredit_titles <- function(subreddit){
   response
 }
 
-#' Search for subreddits based on a keyword.
-#'
-#' This function searches for subreddits on Reddit based on a specified keyword.
-#'
-#' @param keyword The keyword used for subreddit search.
-#' @param limit The maximum number of results to retrieve (optional).
-#' @return A response object containing subreddit search results.
-#'
-#' @import httr
-#'
-#' @examples
-#' response <- get_search_subreddit("dogs")
-#' cat("Subreddit search response:", response, "\n")
-#'
-#' @export
+# Request to search for subreddits based on a keyword.
+
 get_search_subreddit <- function(keyword){
   access_token <- get_token()
   # Construct the request URL
