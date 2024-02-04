@@ -1,7 +1,3 @@
-library(testthat)
-library(httr)
-library(jsonlite)
-
 test_that("get_token returns a valid token string", {
   response <- get_token()
   expect_is(response, "character")

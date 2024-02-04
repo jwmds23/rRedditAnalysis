@@ -1,9 +1,3 @@
-# Load the required packages
-library(testthat)
-library(httr)
-library(jsonlite)
-
-
 test_that("get_threads_summary function works as expected", {
   test_keywords <- c("Mazzy Star", "UBCO")
   for (keyword in test_keywords) {

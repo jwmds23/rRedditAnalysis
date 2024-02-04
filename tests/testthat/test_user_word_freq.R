@@ -1,5 +1,3 @@
-library(testthat)
-
 test_that("user_word_freq returns an htmlwidget", {
   wordcloud_object <- user_word_freq("Techno_superbowl", "comments")
   expect_true(inherits(wordcloud_object, "htmlwidget"))
