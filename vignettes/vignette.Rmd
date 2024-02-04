@@ -15,7 +15,7 @@ vignette: >
 
 # Installation
 
-This package is not yet available on CRAN and can be installed locally from the source.
+This package can be installed locally from the source.
 
 # Usage
 
@@ -25,7 +25,7 @@ To get started, you can extract thread summaries using `get_threads_summary()`:
 
 ```{r get-threads-summary}
 library(rRedditAnalysis)
-threads <- get_threads_summary(subreddit = "sample_subreddit", from = "2021-01-01", to = "2021-01-31")
+threads <- get_threads_summary(keyword = "apple")
 print(threads)
 ```
 
@@ -35,8 +35,7 @@ You can analyze word frequencies in posts using `user_word_freq()`:
 
 ```{r word-freq, eval=FALSE}
 # Assuming `threads` is a data frame containing Reddit threads
-word_freq <- user_word_freq(data = threads, user = "sample_user")
-plot(word_freq)
+word_freq <- user_word_freq(username = "Microsoft_Azure", content_type = "comments")
 ```
 
 ## Sentiment Analysis
@@ -45,8 +44,7 @@ Performing sentiment analysis on a subreddit's high-frequency terms can be done 
 
 ```{r sentiment-analysis, eval=FALSE}
 # Perform sentiment analysis on a sample subreddit
-sentiment <- subreddit_highfreq_sentiment(subreddit = "sample_subreddit")
-plot(sentiment)
+sentiment <- subreddit_highfreq_sentiment(keyword = "cat")
 ```
 
 # Further Details
