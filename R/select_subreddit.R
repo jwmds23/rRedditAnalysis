@@ -12,17 +12,14 @@ source(here("R", "get_requests.r"))
 #' displays the top 5 subreddits with the highest number of subscribers, then 
 #' prompts the user to select one of them.
 #'
-#' @param keyword The keyword used for subreddit search.
-#' @param test A flag for unit test dealing with user input.
+#' param (keyword) : The keyword used for subreddit search.
+#' param (test) : A flag for unit test dealing with user input.
 #'
-#' @return The name of the selected subreddit based on user input.
+#' return: The name of the selected subreddit based on user input.
 #'
-#' @import httr jsonlite
-#'
-#' @examples
+#' examples:
 #' subreddit <- select_subreddit("cats")
-#'
-#' @export
+
 select_subreddit <- function(keyword, test=0) {
   response <- get_search_subreddit(keyword)
   # handle the content to find 5 most related reddits
