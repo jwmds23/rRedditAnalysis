@@ -1,4 +1,3 @@
-source("R/get_requests.R")
 #' Generate a Word Cloud from User Content on Reddit
 #'
 #' This function fetches content from Reddit based on the specified username and content type, 
@@ -85,7 +84,8 @@ user_word_freq <- function(username, content_type){
   }
   
   # Load the udpipe model
-  ud_model <- udpipe_load_model("R/english-ewt-ud-2.5-191206.udpipe")
+  udpipe_model_path <- system.file("data", "english-ewt-ud-2.5-191206.udpipe", package = "rRedditAnalysis")
+  ud_model <- udpipe_load_model(udpipe_model_path)
   # Annotate the content using the udpipe model
   annotated_content <- udpipe_annotate(ud_model, x = content)
   annotated_content_df <- as.data.frame(annotated_content)

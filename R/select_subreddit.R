@@ -2,10 +2,6 @@ library(httr)
 library(jsonlite)
 library(here)
 
-source(here("R", "get_requests.r"))
-
-
-
 #' Select and display the top 5 subreddits related to a keyword.
 #'
 #' This function performs a search for subreddits related to a given keyword and

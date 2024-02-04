@@ -2,7 +2,6 @@
 library(testthat)
 library(httr)
 library(jsonlite)
-source("R/get_threads_summary.R")
 
 
 test_that("get_threads_summary function works as expected", {

@@ -1,5 +1,3 @@
-source("R/get_requests.R")
-
 #' Summarize Reddit Thread Search Results
 #'
 #' This function retrieves and summarizes search results of Reddit threads by a specific keyword.
@@ -117,7 +115,8 @@ get_threads_summary <- function(keyword){
           df <- data.frame(text = paste(result_df$title, result_df$text, sep = " "))
           
           # Load the English model for parts-of-speech tagging
-          ud_model <- udpipe_load_model("data/english-ewt-ud-2.5-191206.udpipe")
+          udpipe_model_path <- system.file("data", "english-ewt-ud-2.5-191206.udpipe", package = "rRedditAnalysis")
+          ud_model <- udpipe_load_model(udpipe_model_path)
           
           # Tokenize and annotate the text with parts-of-speech
           annotated_text <- udpipe_annotate(ud_model, x = df$text)
@@ -147,6 +146,6 @@ get_threads_summary <- function(keyword){
     }
   }
   else {
-    return(NULL)
+    return("Please enter a valid keyword")
   }
 }

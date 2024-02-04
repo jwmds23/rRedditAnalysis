@@ -2,9 +2,6 @@ library(httr)
 library(jsonlite)
 library(here)
 
-
-source("R/constants.R")
-
 # Request to get token
 get_token <- function(client_id = CLIENT_ID, client_secret = CLIENT_SECRET, user_agent = USER_AGENT) {
   result <- tryCatch({
@@ -45,7 +42,7 @@ get_user_content_response <-function(username, content_type){
     sr_detail = TRUE,
     Authorization = access_token
   )
-  url <- paste0(DOMAIN_URL, "user/", username, "/", content_type,".json")
+  url <- paste0(DOMAIN_URL, "/user/", username, "/", content_type,".json")
   return(GET(url, query = params))
 }
 
@@ -65,6 +62,7 @@ get_search_threads_response <- function(keyword){
   url <- paste0("https://www.reddit.com/search.json?q=",params$q)
   response <- GET(url, query = params)
   response
+}
 
 
 # Request to get titles from a specified subreddit.
@@ -86,7 +84,6 @@ get_subredit_titles <- function(subreddit){
 }
 
 # Request to search for subreddits based on a keyword.
-
 get_search_subreddit <- function(keyword){
   access_token <- get_token()
   # Construct the request URL

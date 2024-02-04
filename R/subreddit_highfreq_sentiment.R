@@ -3,9 +3,6 @@ library(dplyr)
 library(stringr)
 library(ggplot2)
 library(here)
-source(here("R", "get_requests.r"))
-source(here("R", "select_subreddit.r"))
-
 
 #' Analyze the high-frequency words in subreddit titles and visualize their sentiment.
 #'

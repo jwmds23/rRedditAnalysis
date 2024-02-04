@@ -1,8 +1,6 @@
 library(testthat)
 library(httr)
 library(jsonlite)
-source("R/get_requests.R")
-
 
 test_that("get_token returns a valid token string", {
   response <- get_token()
