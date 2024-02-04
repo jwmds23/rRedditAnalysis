@@ -1,0 +1,65 @@
+---
+title: "An Introduction to Reddit Analysis with rRedditAnalysis"
+author: Nan Tang, Jinxin Wang, Lu kang
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{An Introduction to Reddit Analysis with rRedditAnalysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction
+
+`rRedditAnalysis` is an R package designed for analyzing Reddit data. This package provides functions to extract threads, summarize discussions, and perform sentiment analysis on subreddit posts.
+
+# Installation
+
+This package is not yet available on CRAN and can be installed locally from the source.
+
+# Usage
+
+## Extracting Thread Summaries
+
+To get started, you can extract thread summaries using `get_threads_summary()`:
+
+```{r get-threads-summary}
+library(rRedditAnalysis)
+threads <- get_threads_summary(subreddit = "sample_subreddit", from = "2021-01-01", to = "2021-01-31")
+print(threads)
+```
+
+## Analyzing Word Frequencies
+
+You can analyze word frequencies in posts using `user_word_freq()`:
+
+```{r word-freq, eval=FALSE}
+# Assuming `threads` is a data frame containing Reddit threads
+word_freq <- user_word_freq(data = threads, user = "sample_user")
+plot(word_freq)
+```
+
+## Sentiment Analysis
+
+Performing sentiment analysis on a subreddit's high-frequency terms can be done with `subreddit_highfreq_sentiment()`:
+
+```{r sentiment-analysis, eval=FALSE}
+# Perform sentiment analysis on a sample subreddit
+sentiment <- subreddit_highfreq_sentiment(subreddit = "sample_subreddit")
+plot(sentiment)
+```
+
+# Further Details
+
+For more detailed information on each function and its parameters, refer to the function help pages in R:
+
+```{r get-help, eval=FALSE}
+# Access help pages for the specific functions
+?get_threads_summary
+?user_word_freq
+?subreddit_highfreq_sentiment
+```
+
+# Conclusion
+
+This vignette provided a brief overview of the capabilities of the rRedditAnalysis package. Users are encouraged to review the function documentation and experiment with the package on their own Reddit data for further exploration.
