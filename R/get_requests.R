@@ -41,6 +41,6 @@ get_user_content_response <-function(username, content_type){
     sr_detail = TRUE,
     Authorization = access_token
   )
-  url <- paste0(DOMAIN_URL, "user/", username, "/", content_type,".json")
+  url <- paste0(DOMAIN_URL, "/user/", username, "/", content_type,".json")
   return(GET(url, query = params))
 }
