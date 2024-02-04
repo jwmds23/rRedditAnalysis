@@ -45,4 +45,8 @@ https://github.com/jwmds23/rRedditAnalysis/commit/07e0db1dc92afae64e6d14aac0712c
 Edited test files, wrote a DESCRIPTION file, set up roxygen2 man files and namespace.
 https://github.com/jwmds23/rRedditAnalysis/commit/8b638a28dbcda1797b611c5da1df2727b9062bbc
 
+## Feb 3, 2024
+Edited test files and deleted some files for merging.
+https://github.com/jwmds23/rRedditAnalysis/commit/8f17fef67ac0416529ac184936484da771144f1b
+
 
