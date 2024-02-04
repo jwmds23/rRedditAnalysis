@@ -40,6 +40,10 @@ Date: "2024-02-01"
 Create unit test folder and file
 https://github.com/jwmds23/rRedditAnalysis/compare/main...jw_branch 
 
-Date: "2024-02-01"
+Date: "2024-02-02"
 Add unit tests and Roxygen2 Docstring
 https://github.com/jwmds23/rRedditAnalysis/commit/7ce2b27a7f4ea2c5e5f2926e0b86f50dcdc73735
+
+Date: "2024-02-03"
+Rearrange folder structure and Merge brance into main 
+https://github.com/jwmds23/rRedditAnalysis/commit/57602103b5e75467ce0e9367c8ad72188c04b716
