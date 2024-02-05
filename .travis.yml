@@ -1,0 +1,33 @@
+language: r
+sudo: false
+cache: packages
+
+r:
+  - oldrel
+  - release
+  - devel
+
+os:
+  - linux
+  - osx
+
+warnings_are_errors: false
+
+r_packages:
+  - covr
+  - ggplot2
+  - httr
+  - jsonlite
+  - stringr
+  - text
+  - tidytext
+  - tidyverse
+  - dplyr
+  - tm
+  - udpipe
+  - wordcloud2
+
+after_success:
+  - Rscript -e 'library(covr); codecov()'
+
+
