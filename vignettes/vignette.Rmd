@@ -2,7 +2,7 @@
 title: "An Introduction to Reddit Analysis with rRedditAnalysis"
 author: Nan Tang, Jinxin Wang, Lu kang
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: html_document
 vignette: >
   %\VignetteIndexEntry{An Introduction to Reddit Analysis with rRedditAnalysis}
   %\VignetteEngine{knitr::rmarkdown}
@@ -11,33 +11,43 @@ vignette: >
 
 # Introduction
 
-`rRedditAnalysis` is an R package designed for analyzing Reddit data. This package provides functions to extract threads, summarize discussions, and perform sentiment analysis on subreddit posts.
+`rRedditAnalysis` is an R package with API Wrapper functionality. This package provides tools for Reddit data analysis and visualization, focusing on retrieving user-specific content, threads summary, and sentiment analysis. It can be applied social media analytics and natural language processing.
 
 # Installation
-
 This package can be installed locally from the source.
+```{r}
+```
 
 # Usage
+```{r}
+```
+
+## `user_word_freq(username, content_type)`
+
+To call this function, you can input a valid Reddit username and select a content type out of two options: 'comments' and 'submitted' to retrieve the user's content through API.
+
+- For option 'comments', the function will retrieve the most recent 100 comments of the specified user.
+
+- For option 'submitted', the function will retrieve the most recent 100 threads submitted from the specified user.
+
+After API request, it will analyse the requested content and plot a Word Cloud for visualization. Please refer the below examples. 
+
+```{r word-freq, eval=FALSE, warning=FALSE}
+# Assuming `threads` is a data frame containing Reddit threads
+user_word_freq("Techno_superbowl", "comments")
+user_word_freq("Techno_superbowl", "submitted")
+```
 
 ## Extracting Thread Summaries
 
 To get started, you can extract thread summaries using `get_threads_summary()`:
 
 ```{r get-threads-summary}
-library(rRedditAnalysis)
 threads <- get_threads_summary(keyword = "apple")
 print(threads)
 ```
 
-## Analyzing Word Frequencies
 
-You can analyze word frequencies in posts using `user_word_freq()`:
-
-```{r word-freq, eval=FALSE}
-# Assuming `threads` is a data frame containing Reddit threads
-user_word_freq("Techno_superbowl", "comments")
-user_word_freq("Techno_superbowl", "submitted")
-```
 
 ## Sentiment Analysis
 
@@ -47,6 +57,9 @@ Performing sentiment analysis on a subreddit's high-frequency terms can be done 
 # Perform sentiment analysis on a sample subreddit
 sentiment <- subreddit_highfreq_sentiment(keyword = "cat")
 ```
+
+# Note
+Please do not frequently call each function within one minute, otherwise Reddit API will prevent the user from requesting. If you see error messages like "too many requests" or "request unsuccessful", please wait for at least one minute and try it again. 
 
 # Further Details
 
