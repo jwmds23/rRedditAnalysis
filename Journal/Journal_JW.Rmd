@@ -49,7 +49,8 @@ Rearrange folder structure and Merge brance into main
 https://github.com/jwmds23/rRedditAnalysis/commit/57602103b5e75467ce0e9367c8ad72188c04b716
 
 Date: "2024-02-04"
-Debugging merged package in local main
+Debugging merged package in local main.
+Edit Vignettes
 https://github.com/jwmds23/rRedditAnalysis/commits/main/
 
 
