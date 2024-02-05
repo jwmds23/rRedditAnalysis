@@ -49,4 +49,7 @@ https://github.com/jwmds23/rRedditAnalysis/commit/8b638a28dbcda1797b611c5da1df27
 Edited test files and deleted some files for merging.
 https://github.com/jwmds23/rRedditAnalysis/commit/8f17fef67ac0416529ac184936484da771144f1b
 
+## Feb 4, 2024
+Added namespace and man files for main branch; added test suite file and check passing rate.
+https://github.com/jwmds23/rRedditAnalysis/commit/7f37e5115846ac94c9a628fd5343c30fbad6c855
 
