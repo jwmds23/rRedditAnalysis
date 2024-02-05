@@ -35,7 +35,8 @@ You can analyze word frequencies in posts using `user_word_freq()`:
 
 ```{r word-freq, eval=FALSE}
 # Assuming `threads` is a data frame containing Reddit threads
-word_freq <- user_word_freq(username = "Microsoft_Azure", content_type = "comments")
+user_word_freq("Techno_superbowl", "comments")
+user_word_freq("Techno_superbowl", "submitted")
 ```
 
 ## Sentiment Analysis
