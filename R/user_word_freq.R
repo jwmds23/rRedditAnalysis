@@ -20,9 +20,8 @@
 #' \dontrun{
 #'  user_word_freq("Techno_superbowl", "comments")
 #' }
-#' 
-#'  @export
-#'
+#' @export
+
 
 
 user_word_freq <- function(username, content_type){
