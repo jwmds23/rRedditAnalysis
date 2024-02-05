@@ -24,7 +24,4 @@ preprocesses the text to filter nouns and adjectives, and generates a word cloud
 \dontrun{
  user_word_freq("Techno_superbowl", "comments")
 }
-
- @export
-
 }
