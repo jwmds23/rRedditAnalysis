@@ -16,7 +16,7 @@
 #' @import text
 #' @import udpipe
 #' @import ggplot2
-#' @import dplyr
+#' @import tidyverse
 #'
 #' @references The function uses Reddit's API for data retrieval.
 #' @references The function utilizes the udpipe R package for natural language processing.

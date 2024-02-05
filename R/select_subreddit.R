@@ -2,21 +2,17 @@ library(httr)
 library(jsonlite)
 library(here)
 
-#' Select and display the top 5 subreddits related to a keyword.
-#'
-#' This function performs a search for subreddits related to a given keyword and
-#' displays the top 5 subreddits with the highest number of subscribers, then 
-#' prompts the user to select one of them.
-#'
-#' param (keyword) : The keyword used for subreddit search.
-#' param (test) : A flag for unit test dealing with user input.
-#'
-#' return: The name of the selected subreddit based on user input.
-#'
-#' examples:
-#' subreddit <- select_subreddit("cats")
-
 select_subreddit <- function(keyword, test=0) {
+  # Select and display the top 5 subreddits related to a keyword.
+  #
+  # This function performs a search for subreddits related to a given keyword and
+  # displays the top 5 subreddits with the highest number of subscribers, then 
+  # prompts the user to select one of them.
+  #
+  # param (keyword) : The keyword used for subreddit search.
+  # param (test) : A flag for unit test dealing with user input.
+  #
+  # return: The name of the selected subreddit based on user input.
   response <- get_search_subreddit(keyword)
   # handle the content to find 5 most related reddits
   content <- tryCatch({
