@@ -31,7 +31,6 @@ Set constants and add a function to retrieve subreddits based on input key word.
 
 https://github.com/jwmds23/rRedditAnalysis/commit/b2a05f59c5bd1e712b5eb0bf4c6848d6cc226317
 
-
 ## Jan 31 2024
 
 Make a new request to search for the subreddit names related to keyword, list subscribers for each subreddit and let user select the subredit they want.
@@ -58,6 +57,18 @@ Add unit tests and add the roxygen2 files, including description, namespace, and
 Solve the problem of making unit test of function contains readline for user input.
 
 https://github.com/jwmds23/rRedditAnalysis/commit/1cc2bc4357e7f27cc5b84ab065d253d852201cb4
+
+## Feb 03 2024
+
+Adjust file structure and merge lk_branch into main.
+
+https://github.com/jwmds23/rRedditAnalysis/commit/84b8bba5c88a8ec3c7dd70c9dbc183d0a882fa41
+
+## Feb 04 2024
+
+Add vignettes file to main and adjust unit test.
+
+https://github.com/jwmds23/rRedditAnalysis/commit/f3363ed6794cc2c2e97dbe962d9ca02c7318592d
 
 
 
