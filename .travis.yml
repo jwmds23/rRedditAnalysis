@@ -6,9 +6,15 @@ r:
   - release
 
 os:
-  - osx
+  - linux
 
 warnings_are_errors: false
+
+addons:
+  apt:
+    packages:
+      - libharfbuzz-dev
+      - libfribidi-dev
 
 r_packages:
   - covr
@@ -26,5 +32,6 @@ r_packages:
 
 after_success:
   - Rscript -e 'library(covr); codecov()'
+
 
 
