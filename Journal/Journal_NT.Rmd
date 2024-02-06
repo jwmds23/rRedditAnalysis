@@ -53,3 +53,7 @@ https://github.com/jwmds23/rRedditAnalysis/commit/8f17fef67ac0416529ac184936484d
 Added namespace and man files for main branch; added test suite file and check passing rate.
 https://github.com/jwmds23/rRedditAnalysis/commit/7f37e5115846ac94c9a628fd5343c30fbad6c855
 
+## Feb 5,2024
+edited R scripts,vigenettes and documentations.
+https://github.com/jwmds23/rRedditAnalysis/commit/20fd19c9a305c44a2f536b54d10571d153edda5b
+
