@@ -7,12 +7,13 @@ r:
 
 os:
   - linux
-  - osx
-  - windows  
+  - osx  
 
 warnings_are_errors: false
 
 r_packages:
+  - ragg
+  - reticulate
   - covr
   - ggplot2
   - httr
@@ -25,8 +26,6 @@ r_packages:
   - tm
   - udpipe
   - wordcloud2
-  - ragg
-  - reticulate
 
 after_success:
   - Rscript -e 'library(covr); codecov()'
