@@ -2,6 +2,10 @@ language: r
 sudo: false
 cache: packages
 
+before_install:
+  - mkdir -p ~/.R
+  - echo 'CXX17 = g++-7 -std=gnu++17 -fPIC' > ~/.R/Makevars
+
 r:
   - release
 
@@ -9,6 +13,13 @@ os:
   - linux
 
 warnings_are_errors: false
+
+addons:
+  apt:
+    packages:
+      - libharfbuzz-dev
+      - libfribidi-dev
+      - g++-7
 
 r_packages:
   - covr
@@ -26,5 +37,6 @@ r_packages:
 
 after_success:
   - Rscript -e 'library(covr); codecov()'
+
 
 

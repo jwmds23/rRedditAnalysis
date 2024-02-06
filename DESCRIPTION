@@ -15,7 +15,14 @@ Imports:
     httr,
     jsonlite,
     lubridate,
-    udpipe
+    udpipe,
+    stringr,
+    text,
+    tidytext,
+    tidyverse,
+    tm,
+    wordcloud2
+	
 RoxygenNote: 7.3.1
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
