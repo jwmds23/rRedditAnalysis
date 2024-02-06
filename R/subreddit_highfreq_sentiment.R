@@ -57,11 +57,12 @@ subreddit_highfreq_sentiment <- function(keyword,test=0){
   word_sentiment$sentiment <- factor(word_sentiment$sentiment, levels = c("positive", "negative"))
   
   # Plot bar graph
-  ggplot(word_sentiment, aes(x = reorder(word, n), y = n, fill = n)) +
+  plot <- ggplot(word_sentiment, aes(x = reorder(word, n), y = n, fill = n)) +
     geom_bar(stat = "identity") +
     coord_flip() +
     labs(title = "Word Frequency by Sentiment", x = "Words", y = "Frequency") +
     theme_minimal() +
     scale_fill_gradient(low = "lightblue", high = "pink") +
     facet_wrap(~ sentiment, scales = "free_y")
+  plot
 }
