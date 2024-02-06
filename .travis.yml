@@ -19,6 +19,7 @@ addons:
     packages:
       - libharfbuzz-dev
       - libfribidi-dev
+      - g++-7
 
 r_packages:
   - covr
