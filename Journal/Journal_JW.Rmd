@@ -53,4 +53,9 @@ Debugging merged package in local main.
 Edit Vignettes
 https://github.com/jwmds23/rRedditAnalysis/commits/main/
 
+Date: "2024-02-05"
+Work on Travis CI and Package Installation
+Edit Vignettes
+https://github.com/jwmds23/rRedditAnalysis/commits/main/
+
 

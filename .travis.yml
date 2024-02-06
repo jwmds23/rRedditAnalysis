@@ -16,10 +16,16 @@ warnings_are_errors: false
 
 addons:
   apt:
+    sources: 
+      - ubuntu-toolchain-r-test
     packages:
+      - g++-7
+      - gcc-7 
       - libharfbuzz-dev
       - libfribidi-dev
-      - g++-7
+        
+
+     
 
 r_packages:
   - covr
