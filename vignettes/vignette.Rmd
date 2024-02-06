@@ -1,7 +1,7 @@
 ---
 title: An Introduction to Reddit Analysis with rRedditAnalysis
 author: Nan Tang, Jinxin Wang, Lu kang
-date: Feb 2nd, 2024
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{An Introduction to Reddit Analysis with rRedditAnalysis}
@@ -28,7 +28,7 @@ install.packages("remotes")
 
 ```{r, eval=FALSE}
 # Install the Package from GitHub
-remotes::install_github("jwmds23/rRedditAnalysis")
+remotes::install_github("jwmds23/rRedditAnalysis",upgrade = FALSE)
 ```
 
 ```{r}
@@ -75,7 +75,7 @@ After API request, it will analyze the requested search results and plot three c
 Please refer the below examples.
 
 ```{r get-threads-summary, warning=FALSE}
-threads <- get_threads_summary(keyword = "UBCO")
+threads <- get_threads_summary(keyword = "lunar new year")
 threads$plot1
 threads$plot2
 threads$plot3
