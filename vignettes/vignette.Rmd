@@ -1,13 +1,17 @@
 ---
-title: "An Introduction to Reddit Analysis with rRedditAnalysis"
+title: An Introduction to Reddit Analysis with rRedditAnalysis
 author: Nan Tang, Jinxin Wang, Lu kang
-date: "`r Sys.Date()`"
+date: Feb 2nd, 2024
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{An Introduction to Reddit Analysis with rRedditAnalysis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup}
+knitr::opts_chunk$set(fig.width=8, fig.height=6)
+```
 
 # Introduction
 
@@ -31,7 +35,6 @@ remotes::install_github("jwmds23/rRedditAnalysis")
 # Load and Use the Package
 library(rRedditAnalysis)
 ```
-
 
 # Usage
 
@@ -71,7 +74,7 @@ After API request, it will analyze the requested search results and plot three c
 
 Please refer the below examples.
 
-```{r get-threads-summary}
+```{r get-threads-summary, warning=FALSE}
 threads <- get_threads_summary(keyword = "UBCO")
 threads$plot1
 threads$plot2
@@ -80,8 +83,7 @@ threads$plot3
 
 ## Sentiment Analysis
 
-
-You can conduct sentiment analysis on the high-frequency terms of a subreddit using the function subreddit_highfreq_sentiment().
+You can conduct sentiment analysis on the high-frequency terms of a subreddit using the function `subreddit_highfreq_sentiment()`.
 
 To use this function, begin by inputting a keyword to identify the subreddit you're interested in. Based on relevance and subscriber count, a list of 5 subreddits will be displayed.
 
@@ -89,9 +91,10 @@ From this list, select a subreddit by choosing an index number between 1 and 5. 
 
 please refer the below example:
 
-```{r sentiment-analysis, eval=FALSE}
+```{r sentiment-analysis, warning=FALSE}
 # Perform sentiment analysis on a sample subreddit, please delete "test = 1" in application
 subreddit_highfreq_sentiment(keyword = "cat",test = 1)
+
 ```
 
 # Note
