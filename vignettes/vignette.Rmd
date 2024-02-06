@@ -80,11 +80,18 @@ threads$plot3
 
 ## Sentiment Analysis
 
-Performing sentiment analysis on a subreddit's high-frequency terms can be done with `subreddit_highfreq_sentiment()`:
+
+You can conduct sentiment analysis on the high-frequency terms of a subreddit using the function subreddit_highfreq_sentiment().
+
+To use this function, begin by inputting a keyword to identify the subreddit you're interested in. Based on relevance and subscriber count, a list of 5 subreddits will be displayed.
+
+From this list, select a subreddit by choosing an index number between 1 and 5. Following your selection, a bar chart showing the high-frequency words and their associated sentiments will be presented.
+
+please refer the below example:
 
 ```{r sentiment-analysis, eval=FALSE}
-# Perform sentiment analysis on a sample subreddit
-sentiment <- subreddit_highfreq_sentiment(keyword = "cat")
+# Perform sentiment analysis on a sample subreddit, please delete "test = 1" in application
+subreddit_highfreq_sentiment(keyword = "cat",test = 1)
 ```
 
 # Note
