@@ -2,7 +2,7 @@
 title: "An Introduction to Reddit Analysis with rRedditAnalysis"
 author: Nan Tang, Jinxin Wang, Lu kang
 date: "`r Sys.Date()`"
-output: html_document
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{An Introduction to Reddit Analysis with rRedditAnalysis}
   %\VignetteEngine{knitr::rmarkdown}
@@ -14,25 +14,42 @@ vignette: >
 `rRedditAnalysis` is an R package with API Wrapper functionality. This package provides tools for Reddit data analysis and visualization, focusing on retrieving user-specific content, threads summary, and sentiment analysis. It can be applied social media analytics and natural language processing.
 
 # Installation
-This package can be installed locally from the source.
-```{r}
+
+This package can be installed remotely from the github by using the `remotes` package:
+
+```{r, eval=FALSE}
+# Install the remotes Package (Skip this step if you have installed it before)
+install.packages("remotes")
 ```
+
+```{r, eval=FALSE}
+# Install the Package from GitHub
+remotes::install_github("jwmds23/rRedditAnalysis")
+```
+
+```{r}
+# Load and Use the Package
+library(rRedditAnalysis)
+```
+
 
 # Usage
-```{r}
-```
 
-## `user_word_freq(username, content_type)`
+## User Content Analysis
 
-To call this function, you can input a valid Reddit username and select a content type out of two options: 'comments' and 'submitted' to retrieve the user's content through API.
+You can conduct user content analysis using `user_word_freq(username, content_type)`.
 
-- For option 'comments', the function will retrieve the most recent 100 comments of the specified user.
+To call this function, you should input a valid Reddit username and select a content type out of two options: 'comments' and 'submitted' to retrieve the user's content through reddit API.
 
-- For option 'submitted', the function will retrieve the most recent 100 threads submitted from the specified user.
+-   For option 'comments', the function will retrieve the most recent 100 comments of the specified user.
 
-After API request, it will analyse the requested content and plot a Word Cloud for visualization. Please refer the below examples. 
+-   For option 'submitted', the function will retrieve the most recent 100 threads submitted from the specified user.
 
-```{r word-freq, eval=FALSE, warning=FALSE}
+After API request, it will analyse the requested content and plot a Word Cloud for visualization.
+
+Please refer the below examples.
+
+```{r word-freq, warning=FALSE}
 # Assuming `threads` is a data frame containing Reddit threads
 user_word_freq("Techno_superbowl", "comments")
 user_word_freq("Techno_superbowl", "submitted")
@@ -40,14 +57,26 @@ user_word_freq("Techno_superbowl", "submitted")
 
 ## Extracting Thread Summaries
 
-To get started, you can extract thread summaries using `get_threads_summary()`:
+You can extract threads visualization summary of any topic using `get_threads_summary(keyword)`.
+
+To call this function, you should input a keyword that you would like to analyze in the format of character(put in quotes) to retrieve top 100 related threads through reddit API.
+
+After API request, it will analyze the requested search results and plot three charts:
+
+-   upvote_ratio_plot: A histogram showing the distribution of upvote ratios
+
+-   top_subreddits_plot: A bar plot displaying the top subreddits by number of threads
+
+-   top_nouns_plot: A bar plot showing the top 20 frequent nouns in thread titles and texts
+
+Please refer the below examples.
 
 ```{r get-threads-summary}
-threads <- get_threads_summary(keyword = "apple")
-print(threads)
+threads <- get_threads_summary(keyword = "UBCO")
+threads$plot1
+threads$plot2
+threads$plot3
 ```
-
-
 
 ## Sentiment Analysis
 
@@ -59,7 +88,8 @@ sentiment <- subreddit_highfreq_sentiment(keyword = "cat")
 ```
 
 # Note
-Please do not frequently call each function within one minute, otherwise Reddit API will prevent the user from requesting. If you see error messages like "too many requests" or "request unsuccessful", please wait for at least one minute and try it again. 
+
+Please do not frequently call each function within one minute, otherwise Reddit API will prevent the user from requesting. If you see error messages like "too many requests" or "request unsuccessful", please wait for at least one minute and try it again.
 
 # Further Details
 
