@@ -8,6 +8,7 @@ r:
 os:
   - linux
   - osx
+  - windows  
 
 warnings_are_errors: false
 
@@ -24,6 +25,8 @@ r_packages:
   - tm
   - udpipe
   - wordcloud2
+  - ragg
+  - reticulate
 
 after_success:
   - Rscript -e 'library(covr); codecov()'
