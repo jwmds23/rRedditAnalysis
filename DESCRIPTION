@@ -6,8 +6,7 @@ Date: 2024-02-01
 Authors@R: c(
     person("Nan", "Tang", email = "dejay.tang@gmail.com", role = c("aut", "cre")),
     person("Jinxin", "Wang", email = "jinxindata@gmail.com", role = "aut"),
-    person("Lu", "Kang", email = "kangluhappy2020@gmail.com", role = "aut")
-)
+    person("Lu", "Kang", email = "kangluhappy2020@gmail.com", role = "aut"))
 Maintainer: Nan Tang <dejay.tang@gmail.com>
 Description: rRedditAnalysis is an R package for analyzing data from the Reddit platform. It provides functions and tools to retrieve, process, and visualize Reddit data, including posts, comments, and user activity.
 License: GPL-3
