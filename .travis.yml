@@ -7,13 +7,10 @@ r:
 
 os:
   - linux
-  - osx  
 
 warnings_are_errors: false
 
 r_packages:
-  - ragg
-  - reticulate
   - covr
   - ggplot2
   - httr
