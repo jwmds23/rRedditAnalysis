@@ -3,13 +3,13 @@ library(jsonlite)
 library(here)
 
 # Request to get token
-get_token <- function(client_id = CLIENT_ID, client_secret = CLIENT_SECRET, user_agent = USER_AGENT) {
+get_token <- function(client_id = CLIENT_ID, client_secret = CLIENT_SECRET, user_agent = USER_AGENT, redirect_uri = REDIRECT_URI) {
   result <- tryCatch({
     # Make the POST request
     response <- POST("https://www.reddit.com/api/v1/access_token",
                      authenticate(client_id, client_secret),
                      user_agent(user_agent),
-                     body = list(grant_type = "client_credentials"),
+                     body = list(grant_type = "client_credentials", redirect_uri = redirect_uri),
                      encode = "form")
     
     # Check the response status

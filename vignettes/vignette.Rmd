@@ -75,7 +75,7 @@ After API request, it will analyze the requested search results and plot three c
 Please refer the below examples.
 
 ```{r get-threads-summary, warning=FALSE}
-threads <- get_threads_summary(keyword = "lunar new year")
+threads <- get_threads_summary(keyword = "Nirvana")
 threads$plot1
 threads$plot2
 threads$plot3
@@ -93,7 +93,7 @@ please refer the below example:
 
 ```{r sentiment-analysis, warning=FALSE}
 # Perform sentiment analysis on a sample subreddit, please delete "test = 1" in application
-subreddit_highfreq_sentiment(keyword = "cat",test = 1)
+subreddit_highfreq_sentiment(keyword = "UBC",test=1)
 
 ```
 
