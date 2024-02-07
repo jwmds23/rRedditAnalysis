@@ -25,9 +25,6 @@ subreddit_highfreq_sentiment <- function(keyword,test=0){
   else{
     subreddit <- select_subreddit(keyword,test=1)
   }
-  if (is.na(subreddit)){
-    return(NA)
-  }
   # request for titles
   response <- get_subredit_titles(subreddit)
   # word segment
