@@ -58,4 +58,12 @@ Work on Travis CI and Package Installation
 Edit Vignettes
 https://github.com/jwmds23/rRedditAnalysis/commits/main/
 
+Date: "2024-02-06"
+Tackle on Travis CI Configuration Errors and Vignette Edition
+Edit Vignettes
+https://github.com/jwmds23/rRedditAnalysis/commits/main/
 
+Date: "2024-02-07"
+Tackle on Forbidden Error from Reddit API Requests for Travis CI Build
+Edit Vignettes
+https://github.com/jwmds23/rRedditAnalysis/commits/main/
