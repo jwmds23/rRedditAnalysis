@@ -60,3 +60,7 @@ https://github.com/jwmds23/rRedditAnalysis/commit/20fd19c9a305c44a2f536b54d10571
 ## Feb 6,2024
 Worked on the problems on Travis CI building.
 
+## Feb 7, 2024
+Worked on the problems on Travis CI building; edited vignette for demostration part.
+https://github.com/dejaytang/rRedditAnalysis/commit/800e68de467b8e1ec967bcde0633847600ffd350
+
