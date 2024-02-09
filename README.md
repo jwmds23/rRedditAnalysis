@@ -61,7 +61,7 @@ After API request, it will analyze the requested search results and plot three c
 
 -   top_nouns_plot: A bar plot showing the top 20 frequent nouns in thread titles and texts
 
-Please refer the below examples.
+Please refer the below example.
 
 ```{r get-threads-summary, warning=FALSE}
 threads <- get_threads_summary(keyword = "Nirvana")
@@ -72,7 +72,7 @@ threads$plot3
 
 ### Sentiment Analysis
 
-You can conduct sentiment analysis on the high-frequency terms of a subreddit using the function `subreddit_highfreq_sentiment()`.
+You can conduct sentiment analysis on the high-frequency terms of a subreddit using the function `subreddit_highfreq_sentiment(keyword)`.
 
 To use this function, begin by inputting a keyword to identify the subreddit you're interested in. Based on relevance and subscriber count, a list of 5 subreddits will be displayed.
 
@@ -81,9 +81,8 @@ From this list, select a subreddit by choosing an index number between 1 and 5. 
 please refer the below example:
 
 ```{r sentiment-analysis, warning=FALSE}
-# Perform sentiment analysis on a sample subreddit, please delete "test = 1" in application
-subreddit_highfreq_sentiment(keyword = "UBC",test=1)
-
+# Perform sentiment analysis on a sample subreddit
+subreddit_highfreq_sentiment(keyword = "UBC")
 ```
 
 ## Note
