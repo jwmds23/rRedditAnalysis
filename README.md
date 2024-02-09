@@ -1,23 +1,12 @@
----
-title: An Introduction to Reddit Analysis with rRedditAnalysis
-author: Nan Tang, Jinxin Wang, Lu kang
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{An Introduction to Reddit Analysis with rRedditAnalysis}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
+# rRedditAnalysis
+[![Build Status](https://app.travis-ci.com/jwmds23/rRedditAnalysis.svg?branch=main)](https://travis-ci.org/jwmds23/rRedditAnalysis)
 
-```{r setup}
-knitr::opts_chunk$set(fig.width=8, fig.height=6)
-```
 
-# Introduction
+## Introduction
 
 `rRedditAnalysis` is an R package with API Wrapper functionality. This package provides tools for Reddit data analysis and visualization, focusing on retrieving user-specific content, threads summary, and sentiment analysis. It can be applied social media analytics and natural language processing.
 
-# Installation
+## Installation
 
 This package can be installed remotely from the github by using the `remotes` package:
 
@@ -36,9 +25,9 @@ remotes::install_github("jwmds23/rRedditAnalysis",upgrade = FALSE)
 library(rRedditAnalysis)
 ```
 
-# Usage
+## Usage
 
-## User Content Analysis
+### User Content Analysis
 
 You can conduct user content analysis using `user_word_freq(username, content_type)`.
 
@@ -58,7 +47,7 @@ user_word_freq("Techno_superbowl", "comments")
 user_word_freq("Techno_superbowl", "submitted")
 ```
 
-## Extracting Thread Summaries
+### Extracting Thread Summaries
 
 You can extract threads visualization summary of any topic using `get_threads_summary(keyword)`.
 
@@ -81,9 +70,9 @@ threads$plot2
 threads$plot3
 ```
 
-## Sentiment Analysis
+### Sentiment Analysis
 
-You can conduct sentiment analysis on the high-frequency terms of a subreddit using the function `subreddit_highfreq_sentiment(keyword)`.
+You can conduct sentiment analysis on the high-frequency terms of a subreddit using the function `subreddit_highfreq_sentiment()`.
 
 To use this function, begin by inputting a keyword to identify the subreddit you're interested in. Based on relevance and subscriber count, a list of 5 subreddits will be displayed.
 
@@ -91,16 +80,17 @@ From this list, select a subreddit by choosing an index number between 1 and 5. 
 
 please refer the below example:
 
-```{r sentiment-analysis,eval=FALSE, warning=FALSE}
-# Perform sentiment analysis on a selected subreddit
-subreddit_highfreq_sentiment(keyword = "UBC")
+```{r sentiment-analysis, warning=FALSE}
+# Perform sentiment analysis on a sample subreddit, please delete "test = 1" in application
+subreddit_highfreq_sentiment(keyword = "UBC",test=1)
+
 ```
 
-# Note
+## Note
 
 Please do not frequently call each function within one minute, otherwise Reddit API will prevent the user from requesting. If you see error messages like "too many requests" or "request unsuccessful", please wait for at least one minute and try it again.
 
-# Further Details
+## Further Details
 
 For more detailed information on each function and its parameters, refer to the function help pages in R:
 
@@ -111,6 +101,6 @@ For more detailed information on each function and its parameters, refer to the 
 ?subreddit_highfreq_sentiment
 ```
 
-# Conclusion
+## Conclusion
 
 This vignette provided a brief overview of the capabilities of the rRedditAnalysis package. Users are encouraged to review the function documentation and experiment with the package on their own Reddit data for further exploration.
