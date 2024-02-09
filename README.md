@@ -1,6 +1,6 @@
 # rRedditAnalysis
 [![Build Status](https://app.travis-ci.com/jwmds23/rRedditAnalysis.svg?branch=main)](https://travis-ci.org/jwmds23/rRedditAnalysis)
-
+![Coverage Report](coverage_report.png)
 
 ## Introduction
 
