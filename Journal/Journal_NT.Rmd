@@ -65,3 +65,5 @@ Worked on the problems on Travis CI building; edited vignette for demostration p
 https://github.com/dejaytang/rRedditAnalysis/commit/800e68de467b8e1ec967bcde0633847600ffd350
 
 ## Feb 8, 2024
+Edited vignette and readme file; change the API configuration constant.
+https://github.com/jwmds23/rRedditAnalysis/commit/28c741ea38b27bcd2113e8a20067c09f5e407615
