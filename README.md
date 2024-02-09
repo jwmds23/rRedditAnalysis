@@ -92,7 +92,7 @@ Please do not frequently call each function within one minute, otherwise Reddit 
 
 ## Further Details
 
-For more detailed information on each function and its parameters, refer to the function help pages in R:
+For more detailed information on each function and its parameters, refer to the function help pages in R.
 
 ```{r get-help, eval=FALSE}
 # Access help pages for the specific functions
@@ -101,6 +101,3 @@ For more detailed information on each function and its parameters, refer to the 
 ?subreddit_highfreq_sentiment
 ```
 
-## Conclusion
-
-This vignette provided a brief overview of the capabilities of the rRedditAnalysis package. Users are encouraged to review the function documentation and experiment with the package on their own Reddit data for further exploration.
